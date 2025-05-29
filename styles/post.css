@@ -1,0 +1,38 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0e1a2b;
+    color: white;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .post-container {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 20px;
+  }
+  
+  .back-arrow {
+    display: inline-block;
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 20px;
+  }
+  
+  .back-arrow:hover {
+    color: #22c55e;
+  }
+  
+  .title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+  
+  .content p {
+    margin-bottom: 25px;
+    line-height: 1.7;
+    color: #E5E7EB;
+    font-size: 1rem;
+  }

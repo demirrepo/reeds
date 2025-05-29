@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reeds - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+<body>
+  <nav>
+    <div class="logo">reeds<span>.</span></div>
+
+    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="#21C55D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+      <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="#21C55D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+
+    <div class="nav-links">
+      <a href="#" class="active">Home</a>
+      <a href="reads.html">Reads</a>
+      <a href="about.html">About</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="left">
+      <h1>Hi, there!</h1>
+      <p>
+        I am Demir. From Khorezm. Mobile Software Engineer. <br />
+        Doing coding stuff for 3 years. You can find out <br />
+        about me more on this website.
+      </p>
+      <a href="login.html" class="btn">publisher →</a>
+    </div>
+    <div class="right">
+      <div class="circle-bg"></div>
+      <div class="profile-img">
+        <img src="img/pfp.jpg" alt="Demir's Photo" />
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const iconMenu = hamburger.querySelector('.icon-menu');
+    const iconClose = hamburger.querySelector('.icon-close');
+
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+      hamburger.setAttribute('aria-expanded', !expanded);
+      navLinks.classList.toggle('active');
+      iconMenu.style.display = iconMenu.style.display === 'none' ? 'block' : 'none';
+      iconClose.style.display = iconClose.style.display === 'none' ? 'block' : 'none';
+    });
+  </script>
+</body>
+</html>

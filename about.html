@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Me - Reeds</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles/about.css" />
+ 
+</head>
+<body>
+ <nav>
+    <div class="logo">reeds<span>.</span></div>
+
+    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="#21C55D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+      <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="#21C55D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+
+    <div class="nav-links">
+      <a href="index.html" >Home</a>
+      <a href="reads.html">Reads</a>
+      <a href="#" class="active">About</a>
+    </div>
+  </nav>
+
+  <div class="about-container">
+    <img src="img/pfp.jpg" alt="Your Photo" class="profile-photo" />
+    <div class="about-text">
+      <h1>I am Demir.</h1>
+      <p>I’m a 18-year-old software enthusiast with over three years of experience in software engineering. My primary focus is mobile app development, a passion that started when I was first introduced to informatics in school. That early curiosity led me to participate in programming olympiads — I proudly won 1st place twice for my school and later secured 1st place in the prestigious "Al-Khwarizmi" Olympiad.</p>
+
+      <p>A key moment in my journey was when my teacher, Xusniddin, lent me his own laptop so I could practice programming at home. That act of support introduced me to the world of code — long before I had a device of my own. Today, I’m pursuing a Bachelor's degree under the Millat Umidi foundation and continue to explore the world of software development with the same curiosity I started with.</p>
+
+      <p>Outside of tech, I have a deep interest in films — from storytelling and cinematography to the creative decisions of directors. It fascinates me how ideas turn into powerful visual experiences.</p>
+
+      <p>So far, I’ve built several projects, including a Weather App, Rock-Paper-Scissors game, and a Fast-Food Delivery App for a local restaurant, among others. If you'd like to read more about my thoughts, reflections, experiences, and what I've learned along the way, check out the articles I post on the <strong>Reads</strong> page. See you there!</p>
+    </div>
+  </div>
+
+  <script>
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
+</body>
+</html>
