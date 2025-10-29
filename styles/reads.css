@@ -1,93 +1,239 @@
-
-
 a {
   text-decoration: none;
   color: inherit;
 }
+
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #0e1a2b;
-    color: white;
-    margin: 0;
-    padding: 0;
-  }
-  
-  nav {
-    
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-  }
-  
-  .logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-  }
-  
-  .logo span {
-    color: #21C55D;
-  }
-  
-  .nav-links a {
-    margin-left: 40px;
-    text-decoration: none;
-    color: #D1D5DB;
-    font-weight: 500;
-    transition: color 0.3s ease;
-  }
-  
-  .nav-links a.active,
-  .nav-links a:hover {
-    color: #21C55D;
-  }
-  
-  .reads-container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 0 20px;
-  }
-  
-  .read-post {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 25px 0;
-    border-bottom: 1px solid #334155;
-    transition: all 0.3s ease;
-    cursor: pointer;
-  }
-  
-  .read-post .text {
-    flex-grow: 1;
-  }
-  
-  .read-post .title {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: white;
-  }
-  
-  .read-post .meta {
-    color: #9CA3AF;
-    font-size: 0.9rem;
-    margin-top: 4px;
-  }
-  
-  .read-post .arrow {
-    font-size: 1.5rem;
-    color: #22c55e;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    margin-left: 10px;
-  }
-  
-  .read-post:hover .arrow {
-    opacity: 1;
+  font-family: 'Poppins', sans-serif;
+  background-color: #0e1a2b;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.logo span {
+  color: #21C55D;
+}
+
+.nav-links a {
+  margin-left: 40px;
+  text-decoration: none;
+  color: #D1D5DB;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+  color: #21C55D;
+}
+
+.reads-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.read-post {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 0;
+  border-bottom: 1px solid #334155;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.read-post .text {
+  flex-grow: 1;
+}
+
+.read-post .title {
+  font-size: 1.4rem;
+  font-weight: 550;
+  color: white;
+}
+
+.read-post .meta {
+  display: flex;
+  gap: 8px;
+  color: #9CA3AF;
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
+.read-post .meta .date {
+  color: #9CA3AF;
+}
+
+.read-post .meta .read-time {
+  color: #6B7280;
+  font-weight: 500;
+}
+
+.read-post .arrow {
+  font-size: 1.5rem;
+  color: #22c55e;
+  opacity: 0;
+  transition: all 0.3s ease;
+  margin-left: 10px;
+  transform: translateX(-5px);
+}
+
+.read-post:hover {
+  background-color: rgba(34, 197, 94, 0.05);
+  border-radius: 8px;
+  padding: 25px 15px;
+  margin: 0 -15px;
+}
+
+.read-post:hover .arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Loading, Error, and Empty States */
+.loading-container,
+.error-container,
+.empty-container {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #334155;
+  border-top: 3px solid #22c55e;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
 
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
-  /* Hamburger button styling */
+.loading-text {
+  color: #9CA3AF;
+  font-size: 1rem;
+}
+
+.error-icon,
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.error-title,
+.empty-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.error-message,
+.empty-message {
+  color: #9CA3AF;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.retry-btn {
+  background-color: #22c55e;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.retry-btn:hover {
+  background-color: #16a34a;
+}
+
+/* Load More Button */
+.load-more-btn {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  margin: 40px auto 0;
+  padding: 12px 24px;
+  background-color: transparent;
+  color: #22c55e;
+  border: 2px solid #22c55e;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.load-more-btn:hover {
+  background-color: #22c55e;
+  color: white;
+}
+
+/* Focus states for accessibility */
+.read-post:focus {
+  outline: 2px solid #22c55e;
+  outline-offset: 2px;
+}
+
+.load-more-btn:focus,
+.retry-btn:focus {
+  outline: 2px solid #22c55e;
+  outline-offset: 2px;
+}
+
+/* Performance optimizations */
+.read-post {
+  will-change: transform;
+  contain: layout style paint;
+}
+
+.read-post:hover {
+  transform: translateY(-1px);
+}
+
+/* Optimize animations */
+.loading-spinner {
+  will-change: transform;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .loading-spinner {
+    animation: none;
+  }
+
+  .read-post:hover {
+    transform: none;
+  }
+}
+
+/* Hamburger button styling */
 .hamburger {
   background: none;
   border: none;
@@ -113,7 +259,8 @@ body {
 
   .nav-links {
     position: absolute;
-    top: 65px; /* height of nav */
+    top: 65px;
+    /* height of nav */
     right: 0;
     background-color: #0e1a2b;
     flex-direction: column;
@@ -124,7 +271,8 @@ body {
   }
 
   .nav-links.active {
-    max-height: 300px; /* enough to show all links */
+    max-height: 300px;
+    /* enough to show all links */
   }
 
   .nav-links a {
@@ -136,7 +284,25 @@ body {
 }
 
 
+/* Mobile responsive improvements */
 @media (max-width: 768px) {
+  .reads-container {
+    padding: 0 15px;
+  }
+
+  .read-post {
+    padding: 20px 0;
+  }
+
+  .read-post .title {
+    font-size: 1.2rem;
+  }
+
+  .read-post .meta {
+    flex-direction: column;
+    gap: 4px;
+  }
+
   .nav-links a {
     padding: 10px 20px 10px 70px;
     display: block;

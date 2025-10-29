@@ -36,3 +36,91 @@ body {
     color: #E5E7EB;
     font-size: 1rem;
   }
+
+  /* Loading skeleton styles */
+  .loading-skeleton {
+    background: linear-gradient(90deg, #334155 25%, #475569 50%, #334155 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    border-radius: 4px;
+  }
+
+  .title-skeleton {
+    height: 2rem;
+    width: 80%;
+    margin-bottom: 1rem;
+  }
+
+  .content-skeleton {
+    height: 1rem;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .content-skeleton.short {
+    width: 60%;
+  }
+
+  @keyframes loading {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  /* Error states */
+  .error-container {
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  .error-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+
+  .error-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: white;
+  }
+
+  .error-message {
+    color: #9CA3AF;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .retry-btn {
+    background-color: #22c55e;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .retry-btn:hover {
+    background-color: #16a34a;
+  }
+
+  .markdown-error {
+    background-color: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+  }
+
+  .markdown-error pre {
+    background-color: #111827;
+    padding: 15px;
+    border-radius: 4px;
+    overflow-x: auto;
+    color: #e5e7eb;
+  }

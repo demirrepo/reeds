@@ -1,27 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Reeds - Reads</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="preload"
+    as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  </noscript>
   <link rel="stylesheet" href="styles/reads.css" />
-  <!-- Firebase SDKs -->
+  <link rel="preconnect" href="https://www.gstatic.com" />
+  <link rel="dns-prefetch" href="https://www.gstatic.com" />
+  <!-- Firebase SDKs with performance optimizations -->
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
   <script src="js/reads.js" defer></script>
+  <script>
+    // Register Service Worker for caching
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then((registration) => {
+            console.log('SW registered: ', registration);
+          })
+          .catch((registrationError) => {
+            console.log('SW registration failed: ', registrationError);
+          });
+      });
+    }
+  </script>
 </head>
+
 <body>
   <nav>
     <div class="logo">reeds<span>.</span></div>
 
     <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
-      <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="#21C55D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="#21C55D"
+        stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
         <line x1="3" y1="6" x2="21" y2="6" />
         <line x1="3" y1="12" x2="21" y2="12" />
         <line x1="3" y1="18" x2="21" y2="18" />
       </svg>
-      <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="#21C55D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+      <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="#21C55D"
+        stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
         <line x1="18" y1="6" x2="6" y2="18" />
         <line x1="6" y1="6" x2="18" y2="18" />
       </svg>
@@ -51,4 +75,5 @@
     });
   </script>
 </body>
+
 </html>
