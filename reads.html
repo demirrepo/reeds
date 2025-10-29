@@ -13,10 +13,14 @@
   <link rel="stylesheet" href="styles/reads.css" />
   <link rel="preconnect" href="https://www.gstatic.com" />
   <link rel="dns-prefetch" href="https://www.gstatic.com" />
-  <!-- Firebase SDKs with performance optimizations -->
+
+  <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
-  <script type="module" src="js/reads.js" defer></script>
+
+  <!-- Your reads.js -->
+  <script src="js/reads.js"></script>
+
   <script>
     // Register Service Worker for caching
     if ('serviceWorker' in navigator) {
