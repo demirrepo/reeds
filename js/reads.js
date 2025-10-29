@@ -1,7 +1,6 @@
-import 'dotenv/config';
 
 const firebaseConfig = {
-  apiKey: process.env.API_KEY,
+  apiKey: 'AIzaSyDkS3LdzhZMW7Tzka9Yia54kL8WXR9llRY',
   authDomain: "personalblog-a72a3.firebaseapp.com",
   projectId: "personalblog-a72a3"
 };
