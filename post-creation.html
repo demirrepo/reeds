@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create New Post</title>
     <link rel="stylesheet" href="styles/post-creation.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Updated Firebase SDK imports with correct versions -->
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
-    
+
     <!-- Make sure the path to your JavaScript file is correct -->
-    <script defer src="js/post-creation.js"></script>
+    <script src="js/post-creation.js"></script>
 </head>
+
 <body>
     <div class="creation-container">
         <header>
@@ -25,30 +27,20 @@
                 <button id="publishBtn">PUBLISH CONTENT <span class="up-arrow">↑</span></button>
             </div>
         </header>
-        
+
         <main>
             <form id="postForm">
                 <div class="title-input-container">
-                    <input 
-                        type="text" 
-                        id="postTitle" 
-                        placeholder="Your title would be..." 
-                        class="title-input" 
-                        required
-                    >
+                    <input type="text" id="postTitle" placeholder="Your title would be..." class="title-input" required>
                 </div>
-                
+
                 <div class="content-input-container">
-                    <textarea 
-                        id="postContent" 
-                        placeholder="Got something important to share..." 
-                        class="content-input" 
-                        required
-                    ></textarea>
+                    <textarea id="postContent" placeholder="Got something important to share..." class="content-input"
+                        required></textarea>
                 </div>
             </form>
         </main>
-        
+
         <div class="formatting-toolbar">
             <button class="format-btn" data-format="bold">B</button>
             <button class="format-btn" data-format="underline">U</button>
@@ -59,4 +51,5 @@
         </div>
     </div>
 </body>
+
 </html>

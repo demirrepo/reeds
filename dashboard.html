@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Management Dashboard</title>
     <link rel="stylesheet" href="styles/dashboard.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Firebase SDK imports -->
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
-    
-    <script defer src="js/dashboard.js"></script>
+
+    <script src="js/dashboard.js"></script>
 </head>
+
 <body>
     <div class="dashboard-container">
         <header>
@@ -24,11 +26,11 @@
                 <button id="newPostBtn">NEW ONE <span class="plus">+</span></button>
             </div>
         </header>
-        
+
         <main>
             <section class="posts-section">
                 <h2>Posts</h2>
-                
+
                 <div class="posts-list" id="postsList">
                     <!-- Posts will be dynamically loaded here -->
                     <div class="post-item">
@@ -44,7 +46,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="post-item">
                         <div class="post-content">
                             <h3>Your attention - is important.</h3>
@@ -54,7 +56,7 @@
                             <button class="more-options-btn">⋮</button>
                         </div>
                     </div>
-                    
+
                     <div class="post-item">
                         <div class="post-content">
                             <h3>Your attention - is important.</h3>
@@ -64,7 +66,7 @@
                             <button class="more-options-btn">⋮</button>
                         </div>
                     </div>
-                    
+
                     <div class="post-item">
                         <div class="post-content">
                             <h3>Your attention - is important.</h3>
@@ -74,7 +76,7 @@
                             <button class="more-options-btn">⋮</button>
                         </div>
                     </div>
-                    
+
                     <div class="post-item">
                         <div class="post-content">
                             <h3>Your attention - is important.</h3>
@@ -88,7 +90,7 @@
             </section>
         </main>
     </div>
-    
+
     <!-- New Post Modal (Hidden by default) -->
     <div id="newPostModal" class="modal">
         <div class="modal-content">
@@ -108,4 +110,5 @@
         </div>
     </div>
 </body>
+
 </html>

@@ -5,36 +5,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Reeds - Reads</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="preload"
-    as="style" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  </noscript>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- CSS -->
   <link rel="stylesheet" href="styles/reads.css" />
-  <link rel="preconnect" href="https://www.gstatic.com" />
-  <link rel="dns-prefetch" href="https://www.gstatic.com" />
 
   <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
-
-  <!-- Your reads.js -->
-  <script src="js/reads.js"></script>
-
-  <script>
-    // Register Service Worker for caching
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-          .then((registration) => {
-            console.log('SW registered: ', registration);
-          })
-          .catch((registrationError) => {
-            console.log('SW registration failed: ', registrationError);
-          });
-      });
-    }
-  </script>
 </head>
 
 <body>
@@ -64,6 +44,7 @@
 
   <div class="reads-container"></div>
 
+  <!-- JS: Hamburger Menu -->
   <script>
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
@@ -77,6 +58,20 @@
       iconMenu.style.display = iconMenu.style.display === 'none' ? 'block' : 'none';
       iconClose.style.display = iconClose.style.display === 'none' ? 'block' : 'none';
     });
+  </script>
+
+  <!-- JS: Reads logic -->
+  <script src="js/reads.js"></script>
+
+  <!-- JS: Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => console.log('SW registered: ', reg))
+          .catch(err => console.log('SW registration failed: ', err));
+      });
+    }
   </script>
 </body>
 
