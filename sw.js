@@ -1,4 +1,3 @@
-// Service Worker for caching static assets
 const CACHE_NAME = 'blogapp-v1';
 const urlsToCache = [
   '/',
@@ -8,50 +7,57 @@ const urlsToCache = [
   '/styles/reads.css',
   '/styles/post.css',
   '/styles/style.css',
-  '/js/reads.js',
-  '/js/post.js',
-  '/js/dashboard.js',
-  '/js/post-creation.js',
-  '/js/login.js',
-  'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap',
-  'https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js',
-  'https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js'
+  'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap'
 ];
 
-// Install event
+// Install: cache static assets
 self.addEventListener('install', (event) => {
+  console.log('[Service Worker] Installing...');
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => {
-        console.log('Opened cache');
+        console.log('[Service Worker] Caching app shell');
         return cache.addAll(urlsToCache);
       })
+      .then(() => self.skipWaiting())
   );
 });
 
-// Fetch event
-self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request)
-      .then((response) => {
-        // Return cached version or fetch from network
-        return response || fetch(event.request);
-      })
-  );
-});
-
-// Activate event
+// Activate: cleanup old caches
 self.addEventListener('activate', (event) => {
+  console.log('[Service Worker] Activating...');
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
-        cacheNames.map((cacheName) => {
-          if (cacheName !== CACHE_NAME) {
-            console.log('Deleting old cache:', cacheName);
-            return caches.delete(cacheName);
+        cacheNames.map((name) => {
+          if (name !== CACHE_NAME) {
+            console.log('[Service Worker] Deleting old cache:', name);
+            return caches.delete(name);
           }
         })
       );
-    })
+    }).then(() => self.clients.claim())
+  );
+});
+
+// Fetch: serve cached assets, but always fetch JS/Firestore from network
+self.addEventListener('fetch', (event) => {
+  const requestUrl = new URL(event.request.url);
+
+  // Always fetch JS files and Firebase API requests from network
+  if (
+    requestUrl.pathname.endsWith('.js') ||
+    requestUrl.origin.includes('firebase.googleapis.com')
+  ) {
+    event.respondWith(fetch(event.request));
+    return;
+  }
+
+  // Cache-first strategy for other static assets
+  event.respondWith(
+    caches.match(event.request)
+      .then((response) => {
+        return response || fetch(event.request);
+      })
   );
 });
