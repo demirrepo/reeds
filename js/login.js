@@ -29,3 +29,6 @@ function login() {
       document.getElementById("error-message").textContent = error.message;
     });
 }
+
+// expose login to global scope so inline onclick in HTML can find it
+window.login = login;
